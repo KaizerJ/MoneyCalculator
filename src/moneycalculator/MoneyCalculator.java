@@ -10,5 +10,4 @@ public class MoneyCalculator {
         RestExchangeRateLoader exchLoader = new RestExchangeRateLoader();
         exchLoader.load(currencies);
     }
-    
 }
