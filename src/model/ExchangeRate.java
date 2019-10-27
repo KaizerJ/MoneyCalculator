@@ -1,8 +1,8 @@
-package moneycalculator;
+package model;
 
 import java.time.LocalDate;
 
-class ExchangeRate {
+public class ExchangeRate {
 
     private final LocalDate date;
     private final double rate;

@@ -1,5 +1,9 @@
 package moneycalculator;
 
+import implPersistance.CsvCurrencyLoader;
+import implPersistance.RestExchangeRateLoader;
+import model.Currency;
+import persistance.CurrencyLoader;
 import java.util.List;
 
 public class MoneyCalculator {

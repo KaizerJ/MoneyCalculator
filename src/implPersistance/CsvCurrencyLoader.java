@@ -1,5 +1,7 @@
-package moneycalculator;
+package implPersistance;
 
+import model.Currency;
+import persistance.CurrencyLoader;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

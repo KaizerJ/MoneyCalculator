@@ -1,5 +1,8 @@
-package moneycalculator;
+package implPersistance;
 
+import model.Currency;
+import model.ExchangeRate;
+import persistance.ExchangeRateLoader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
