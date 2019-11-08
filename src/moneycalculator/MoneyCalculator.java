@@ -1,5 +1,7 @@
 package moneycalculator;
 
+import control.CalculateCommand;
+import gui.MainFrame;
 import implPersistance.CsvCurrencyLoader;
 import implPersistance.RestExchangeRateLoader;
 import model.Currency;
@@ -9,9 +11,11 @@ import java.util.List;
 public class MoneyCalculator {
 
     public static void main(String[] args) {
-        CurrencyLoader cl = new CsvCurrencyLoader();
-        List<Currency> currencies = cl.load();
-        RestExchangeRateLoader exchLoader = new RestExchangeRateLoader();
-        exchLoader.load(currencies);
+        CurrencyLoader currencyLoader = new CsvCurrencyLoader();
+        RestExchangeRateLoader exchRateLoader = new RestExchangeRateLoader();
+        MainFrame mainFrame = new MainFrame(currencyLoader.load());
+        mainFrame.addCommand(new CalculateCommand(mainFrame.getMoneyDialog(),
+                                                  mainFrame.getMoneyDisplay(),
+                                                  exchRateLoader));
     }
 }

@@ -13,7 +13,7 @@ public class CsvCurrencyLoader implements CurrencyLoader{
     private final String path = "Currencies.csv";
     
     @Override
-    public List<Currency> load() {
+    public Currency[] load() {
         List<Currency> currencies = new ArrayList<>();
         try( BufferedReader csvReader = new BufferedReader(new FileReader(path))){
             String row;
@@ -25,7 +25,7 @@ public class CsvCurrencyLoader implements CurrencyLoader{
         } catch (IOException ex) {
             System.out.println("Error");
         }
-        return currencies;
+        return currencies.toArray(new Currency[0]);
     }
     
 }

@@ -5,5 +5,5 @@ import model.Currency;
 
 public interface CurrencyLoader {
     
-    public List<Currency> load();
+    public Currency[] load();
 }
