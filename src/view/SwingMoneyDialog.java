@@ -15,7 +15,11 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
     
     @Override
     public Money setMoney() {
-        return null; //STUB CODE
+        double amount = 0.;
+        try {
+            amount = Double.parseDouble(amountTextField.getText());
+        } catch (Exception ignored) {}
+        return new Money(amount,getFromCurrency());
     }
 
     public SwingMoneyDialog(Currency[] currencies) {
@@ -49,5 +53,14 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
 
     public Currency[] getCurrencies() {
         return currencies;
+    }
+    
+    //Es muy similar a getDestCurrency (Refactorizar?)
+    private Currency getFromCurrency() {
+        for (Currency currency : currencies) {
+            if(currency.getCode().equals(currencyFromCombo.getSelectedItem()))
+                return currency;
+        }
+        return null;
     }
 }
