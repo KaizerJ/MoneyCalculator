@@ -49,7 +49,9 @@ public class RestExchangeRateLoader implements ExchangeRateLoader {
             for (Object code : rates.keySet()) {
                 exchangeRates.add(new ExchangeRate(date, (double) rates.get(code), base, currencyMap.get(code)));
             }
+            
         }
+        exchangeRates.add(new ExchangeRate(LocalDate.now(),1,currencyMap.get("EUR"),currencyMap.get("EUR")));
                 
         return exchangeRates;
     }
