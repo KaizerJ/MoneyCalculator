@@ -6,5 +6,5 @@ import model.ExchangeRate;
 
 public interface ExchangeRateLoader {
     
-    public List<ExchangeRate> load(List<Currency> currencies);
+    public List<ExchangeRate> load(Currency[] currencies);
 }

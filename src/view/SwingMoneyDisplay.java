@@ -20,6 +20,6 @@ public class SwingMoneyDisplay extends JPanel implements MoneyDisplay {
         moneyDisplayField.setText("");
         moneyDisplayField.setEditable(false);
     }
-
+    
     
 }

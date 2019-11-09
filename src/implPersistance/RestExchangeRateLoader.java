@@ -16,7 +16,7 @@ import java.util.Map;
 public class RestExchangeRateLoader implements ExchangeRateLoader {
 
     @Override
-    public List<ExchangeRate> load(List<Currency> currencies) { 
+    public List<ExchangeRate> load(Currency[] currencies) { 
         
         Map<String, Currency> currencyMap = new HashMap<>();
         for (Currency currency : currencies) {

@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -36,5 +37,17 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
             currencyCodes[iter++] = currency.getCode();
         }
         return currencyCodes;
+    }
+    
+    public Currency getDestCurrency(){
+        for (Currency currency : currencies) {
+            if(currency.getCode().equals(currencyToCombo.getSelectedItem()))
+                return currency;
+        }
+        return null;
+    }
+
+    public Currency[] getCurrencies() {
+        return currencies;
     }
 }
