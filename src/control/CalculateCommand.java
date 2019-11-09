@@ -25,14 +25,17 @@ public class CalculateCommand implements Command {
     public String name() {
         return "calculate";
     }
-
+    
+    //No me gustan nada los cast que hago para obtener la divisa destino
+    
     @Override
     public void execute() {
         Money originMoney = moneyDialog.setMoney();
         Money destMoney = convertMoney(originMoney, ((SwingMoneyDialog) moneyDialog).getDestCurrency());
         moneyDisplay.display(destMoney);
     }
-
+    
+    //No me gustan el cast para obtener las divisas y cargas TODOS los exchange rates cada vez
     private Money convertMoney(Money originMoney, Currency destCurrency) {
         List<ExchangeRate> exchRates = exchRateLoader.load(((SwingMoneyDialog) moneyDialog).getCurrencies());
         double rate = 0;

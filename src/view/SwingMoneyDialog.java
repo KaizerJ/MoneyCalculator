@@ -1,9 +1,11 @@
 package view;
 
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import model.Currency;
 import model.Money;
 
@@ -26,6 +28,7 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
         this.currencies = currencies;
         this.amountTextField = new JTextField(15);
         amountTextField.setText("Inserte una cantidad");
+        amountTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         String[] currencyCodes = getCurrencyCodes();
         this.currencyFromCombo = new JComboBox(currencyCodes);
         this.currencyToCombo = new JComboBox(currencyCodes);
@@ -40,6 +43,7 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
         for (Currency currency : currencies) {
             currencyCodes[iter++] = currency.getCode();
         }
+        Arrays.sort(currencyCodes);
         return currencyCodes;
     }
     

@@ -3,6 +3,7 @@ package view;
 import java.awt.LayoutManager;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import model.Money;
 
 public class SwingMoneyDisplay extends JPanel implements MoneyDisplay {
@@ -19,6 +20,7 @@ public class SwingMoneyDisplay extends JPanel implements MoneyDisplay {
         this.add(moneyDisplayField);
         moneyDisplayField.setText("");
         moneyDisplayField.setEditable(false);
+        moneyDisplayField.setHorizontalAlignment(SwingConstants.RIGHT);
     }
     
     
