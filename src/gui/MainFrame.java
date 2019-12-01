@@ -1,6 +1,5 @@
 package gui;
 
-import control.CalculateCommand;
 import control.Command;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -12,13 +11,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import model.Currency;
-import view.MoneyDialog;
 import view.MoneyDisplay;
 import view.SwingMoneyDialog;
 import view.SwingMoneyDisplay;
+import view.ExchangeDialog;
 
 public class MainFrame extends JFrame {
-    private final MoneyDialog moneyDialog;
+    private final ExchangeDialog moneyDialog;
     private final MoneyDisplay moneyDisplay;
     private final Map<String,Command> commands;
 
@@ -59,7 +58,7 @@ public class MainFrame extends JFrame {
         };
     }
 
-    public MoneyDialog getMoneyDialog() {
+    public ExchangeDialog getMoneyDialog() {
         return moneyDialog;
     }
 
