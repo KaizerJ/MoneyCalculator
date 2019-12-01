@@ -4,18 +4,17 @@ import java.util.List;
 import model.Currency;
 import model.ExchangeRate;
 import model.Money;
-import view.MoneyDialog;
 import view.MoneyDisplay;
-import view.SwingMoneyDialog;
+import view.ExchangeDialog;
 
 public class CalculateCommand implements Command {
 
-    private final MoneyDialog moneyDialog;
+    private final ExchangeDialog exchangeDialog;
     private final MoneyDisplay moneyDisplay;
     private final List<ExchangeRate> exchRates;
 
-    public CalculateCommand(MoneyDialog moneyDialog, MoneyDisplay moneyDisplay, List<ExchangeRate> exchRates) {
-        this.moneyDialog = moneyDialog;
+    public CalculateCommand(ExchangeDialog moneyDialog, MoneyDisplay moneyDisplay, List<ExchangeRate> exchRates) {
+        this.exchangeDialog = moneyDialog;
         this.moneyDisplay = moneyDisplay;
         this.exchRates = exchRates;
     }
@@ -25,16 +24,13 @@ public class CalculateCommand implements Command {
         return "calculate";
     }
     
-    //No me gustan nada los cast que hago para obtener la divisa destino
-    
     @Override
     public void execute() {
-        Money originMoney = moneyDialog.setMoney();
-        Money destMoney = convertMoney(originMoney, ((SwingMoneyDialog) moneyDialog).getDestCurrency());
+        Money originMoney = exchangeDialog.setMoney();
+        Money destMoney = convertMoney(originMoney, exchangeDialog.setDestCurrency());
         moneyDisplay.display(destMoney);
     }
-    
-    //No me gustan el cast para obtener las divisas
+
     private Money convertMoney(Money originMoney, Currency destCurrency) {
         double rate = 0;
         for (ExchangeRate exchRate : exchRates) {
