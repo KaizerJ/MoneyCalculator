@@ -1,7 +1,6 @@
 package view;
 
 import java.util.Arrays;
-import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -9,7 +8,7 @@ import javax.swing.SwingConstants;
 import model.Currency;
 import model.Money;
 
-public class SwingMoneyDialog extends JPanel implements MoneyDialog {
+public class SwingMoneyDialog extends JPanel implements ExchangeDialog {
     private final Currency[] currencies;
     private final JTextField amountTextField;
     private final JComboBox<Currency> currencyFromCombo;
@@ -24,6 +23,15 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
         return new Money(amount,getFromCurrency());
     }
 
+    @Override
+    public Currency setDestCurrency(){
+        for (Currency currency : currencies) {
+            if(currency.getCode().equals(currencyToCombo.getSelectedItem()))
+                return currency;
+        }
+        return null;
+    }
+    
     public SwingMoneyDialog(Currency[] currencies) {
         this.currencies = currencies;
         this.amountTextField = new JTextField(15);
@@ -45,14 +53,6 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog {
         }
         Arrays.sort(currencyCodes);
         return currencyCodes;
-    }
-    
-    public Currency getDestCurrency(){
-        for (Currency currency : currencies) {
-            if(currency.getCode().equals(currencyToCombo.getSelectedItem()))
-                return currency;
-        }
-        return null;
     }
 
     public Currency[] getCurrencies() {
