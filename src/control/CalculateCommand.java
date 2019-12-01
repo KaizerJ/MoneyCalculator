@@ -1,6 +1,5 @@
 package control;
 
-import implPersistance.RestExchangeRateLoader;
 import java.util.List;
 import model.Currency;
 import model.ExchangeRate;
@@ -13,12 +12,12 @@ public class CalculateCommand implements Command {
 
     private final MoneyDialog moneyDialog;
     private final MoneyDisplay moneyDisplay;
-    private final RestExchangeRateLoader exchRateLoader;
+    private final List<ExchangeRate> exchRates;
 
-    public CalculateCommand(MoneyDialog moneyDialog, MoneyDisplay moneyDisplay, RestExchangeRateLoader exchRateLoader) {
+    public CalculateCommand(MoneyDialog moneyDialog, MoneyDisplay moneyDisplay, List<ExchangeRate> exchRates) {
         this.moneyDialog = moneyDialog;
         this.moneyDisplay = moneyDisplay;
-        this.exchRateLoader = exchRateLoader;
+        this.exchRates = exchRates;
     }
 
     @Override
@@ -37,7 +36,6 @@ public class CalculateCommand implements Command {
     
     //No me gustan el cast para obtener las divisas y cargas TODOS los exchange rates cada vez
     private Money convertMoney(Money originMoney, Currency destCurrency) {
-        List<ExchangeRate> exchRates = exchRateLoader.load(((SwingMoneyDialog) moneyDialog).getCurrencies());
         double rate = 0;
         for (ExchangeRate exchRate : exchRates) {
             if(exchRate.getFrom().equals(originMoney.getCurrency()) && 
