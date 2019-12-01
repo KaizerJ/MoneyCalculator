@@ -34,7 +34,7 @@ public class CalculateCommand implements Command {
         moneyDisplay.display(destMoney);
     }
     
-    //No me gustan el cast para obtener las divisas y cargas TODOS los exchange rates cada vez
+    //No me gustan el cast para obtener las divisas
     private Money convertMoney(Money originMoney, Currency destCurrency) {
         double rate = 0;
         for (ExchangeRate exchRate : exchRates) {
