@@ -1,10 +1,11 @@
-package view;
+package swinggui;
 
 import java.awt.LayoutManager;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import model.Money;
+import view.MoneyDisplay;
 
 public class SwingMoneyDisplay extends JPanel implements MoneyDisplay {
     private final JTextField moneyDisplayField;

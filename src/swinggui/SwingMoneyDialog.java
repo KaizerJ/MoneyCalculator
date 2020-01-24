@@ -1,4 +1,4 @@
-package view;
+package swinggui;
 
 import java.util.Arrays;
 import javax.swing.JComboBox;
@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import model.Currency;
 import model.Money;
+import view.ExchangeDialog;
 
 public class SwingMoneyDialog extends JPanel implements ExchangeDialog {
     private final Currency[] currencies;

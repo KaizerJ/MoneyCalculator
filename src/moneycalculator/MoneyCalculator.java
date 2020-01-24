@@ -1,7 +1,7 @@
 package moneycalculator;
 
 import control.CalculateCommand;
-import gui.MainFrame;
+import swinggui.MainFrame;
 import implPersistance.CsvCurrencyLoader;
 import implPersistance.RestExchangeRateLoader;
 import model.Currency;

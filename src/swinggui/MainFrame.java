@@ -1,4 +1,4 @@
-package gui;
+package swinggui;
 
 import control.Command;
 import java.awt.BorderLayout;
@@ -12,8 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import model.Currency;
 import view.MoneyDisplay;
-import view.SwingMoneyDialog;
-import view.SwingMoneyDisplay;
 import view.ExchangeDialog;
 
 public class MainFrame extends JFrame {
